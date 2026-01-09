@@ -9,7 +9,7 @@ O projeto segue o princípio de separation of concerns
 * **Services (`CapitalGainsService`):** Responsável pela orquestração. 
 * **Application (`Application`):** Camada de Entrada/Saída. Abstrai a leitura do `Stdin` e escrita no `Stdout`, permitindo que o loop principal seja testado unitariamente sem depender do Console do sistema operacional.
 
-## 📚 Bibliotecas e Frameworks
+### Bibliotecas e Frameworks
 
 O projeto priorizou o uso de recursos nativos do .NET 
 
