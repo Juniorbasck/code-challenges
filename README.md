@@ -38,7 +38,6 @@ O Dockerfile está configurado para rodar os testes durante o processo de build.
 
 ### Para visualizar o relatório de execução detalhado:
 
-1. **Executar (Redirecionando Input):**
    ```bash
    dotnet test
    ```  
