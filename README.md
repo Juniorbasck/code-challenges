@@ -3,7 +3,7 @@
 A solução foi desenvolvida utilizando **C# (.NET 8)** com foco em simplicidade, desacoplamento e testabilidade.
 
 ### Arquitetura
-O projeto segue o princípio de **Separation of Concerns (SoC)**, dividido em camadas lógicas:
+O projeto segue o princípio de separation of concerns 
 
 * **Domain (`Portfolio`):** O "coração" da aplicação. Contém toda a lógica de negócio (cálculo de Preço Médio Ponderado, regras de isenção de 20k, gerenciamento de prejuízos acumulados). É uma classe pura, sem dependências externas.
 * **Services (`CapitalGainsService`):** Responsável pela orquestração. Gerencia o ciclo de vida do `Portfolio` (garantindo que cada linha de entrada seja uma simulação independente) e processa listas de operações.
