@@ -44,6 +44,6 @@ O Dockerfile está configurado para rodar os testes durante o processo de build.
 
 ### Informações adicionais
 
-* [Arredondamento](O sistema aplica arredondamento para duas casas decimais (Math.Round(..., 2)) no final do cálculo do imposto e no recálculo do preço médio, conforme exemplos da documentação.)
+* Arredondamento - O sistema aplica arredondamento para duas casas decimais (Math.Round(..., 2)) no final do cálculo do imposto e no recálculo do preço médio, conforme exemplos da documentação.
 
-* [Entrada de Dados](O sistema espera que cada linha seja um JSON válido contendo uma lista de operações.)
+* Entrada de Dados - O sistema espera que cada linha seja um JSON válido contendo uma lista de operações.
