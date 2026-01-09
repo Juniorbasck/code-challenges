@@ -15,7 +15,7 @@ O projeto priorizou o uso de recursos nativos do .NET
 
 * **`System.Text.Json`:** Escolhida por ser a biblioteca nativa do .NET, oferecendo alta performance e baixo consumo de memória para serialização/deserialização, eliminando a necessidade do `Newtonsoft.Json`.
 * **`xUnit`:** Framework de testes padrão de mercado no ecossistema .NET, utilizado para testes unitários e de integração.
-* **Docker:** Utilizado para containerização da aplicação, garantindo que o ambiente de execução seja agnóstico ao sistema operacional do avaliador.
+* **Docker:** Utilizado para containerização da aplicação
 
 ### Como Compilar e Executar
 
