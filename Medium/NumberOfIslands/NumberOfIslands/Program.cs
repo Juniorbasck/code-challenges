@@ -3,17 +3,26 @@
     public static void Main(string[] args)
     {
 
-        char[][] input = new char[][]
+        char[][] inputCaseOne = new char[][]
         {   
             new [] {'1', '1', '1', '1', '0'},
             new [] {'1', '1', '0', '1', '0'},
             new [] {'1', '1', '0', '0', '0'},
             new [] {'0', '0', '0', '1', '1'}
         };
-
-        var result = NumIslands(input);
+        var resultCaseOne = NumIslands(inputCaseOne);
+        Console.WriteLine("The number of islands espected is 2, actueal = " + resultCaseOne);
         
-        Console.WriteLine("The number of ilands is " + result);
+        
+        char[][] inputCaseTwo = new char[][]
+        {   
+            new [] {'1', '1', '1', '1', '0'},
+            new [] {'1', '1', '0', '1', '0'},
+            new [] {'1', '1', '0', '0', '0'},
+            new [] {'0', '0', '0', '0', '0'}
+        };
+        var resultCaseTwo = NumIslands(inputCaseTwo);
+        Console.WriteLine("The number of islands espected is 1, actueal = " + resultCaseTwo);
         
     }
     public static int NumIslands(char[][] grid)
@@ -45,8 +54,6 @@
         
         grid[currentRow][currentCol] = '0';
         
-        Console.WriteLine(cellsToExplore.Count);
-
         while (cellsToExplore.Count > 0)
         {
             var island = cellsToExplore.Dequeue();
@@ -58,8 +65,6 @@
             {
                 var up = grid[currentRow - 1][currentCol];
                 
-                Console.WriteLine(up);
-                
                 if (up == '1')
                 {
                     grid[currentRow - 1][currentCol] = '0';
@@ -70,8 +75,6 @@
             if (currentCol - 1 >= 0)
             {
                 var left = grid[currentRow][currentCol - 1];
-                
-                Console.WriteLine(left);
                 
                 if (left == '1')
                 {
