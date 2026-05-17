@@ -16,17 +16,18 @@ public class Solution()
 
     public static bool ContainsDuplicate(int[] nums)
     {
+        var seens = new HashSet<int>();
+        
         int size = nums.Length;
 
         for (int counter = 0; counter < size; counter++)
         {
-            for (int counterNext = counter + 1; counterNext < size; counterNext++)
+            if (seens.Contains(nums[counter]))
             {
-                if (nums[counter] == nums[counterNext])
-                {
-                    return true;
-                }
+                return true;
             }
+
+            seens.Add(nums[counter]);
         }
         
         return false;
