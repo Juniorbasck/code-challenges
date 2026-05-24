@@ -1,10 +1,11 @@
-﻿public class Solution {
+﻿public class Solution
+{
     public static void Main()
     {
 
         string firstWord = "anagram";
         string secondWord = "nagaram";
-        var result = IsAnagram(firstWord,secondWord);
+        var result = IsAnagram(firstWord, secondWord);
         Console.WriteLine(result);
     }
 
@@ -12,7 +13,7 @@
     {
         var firstWord = s.ToArray();
         var secondWord = t.ToArray();
-        
+
         // if (sizeFirst != sizeSecond) return false;
 
         var letterConters = new Dictionary<char, int>();
@@ -21,8 +22,8 @@
         {
             if (!letterConters.ContainsKey(latter))
                 letterConters.Add(latter, 1);
-    
-            letterConters[latter]++;        
+
+            letterConters[latter]++;
         }
 
         foreach (char latter in secondWord)
@@ -31,7 +32,7 @@
             {
                 return false;
             }
-            
+
             letterConters[latter]--;
         }
 
