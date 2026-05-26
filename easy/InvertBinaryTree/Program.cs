@@ -17,10 +17,12 @@
     public static void Main()
     {
         var tree = new TreeNode(4,
+            
             new TreeNode(2, 
                 new TreeNode(1), 
                 new TreeNode(3)
             ),
+            
             new TreeNode(7, 
                 new TreeNode(6), 
                 new TreeNode(9)
@@ -44,5 +46,25 @@
         InvertTree(root.right);
 
         return root;
+    }
+
+    public static IList<int> ReturnTree(TreeNode root)
+    {
+        var values = new List<int>();
+
+        DFS(root, values);
+
+        return values;
+
+    }
+
+    public static void DFS(TreeNode root, List<int> result)
+    {
+        
+        if(root =- null)
+            return;
+        
+        DFS();
+        
     }
 }
