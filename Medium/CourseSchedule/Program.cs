@@ -1,5 +1,6 @@
 ﻿public class Solution
 {
+    
     public static void Main()
     {
         var numCourses1 = 2;
@@ -7,70 +8,72 @@
         {
           new []{1,0},  
         };
-        
         var result = CanFinish(numCourses1, prerequisites1);
-        Console.WriteLine(result);
+        Console.WriteLine("Expetec True but actual: " + result);
+
+        var numCourses2 = 2;
+        var prerequisites2 = new int[][]
+        {
+            [1,0],
+            [0, 1],
+        };
+        var result2 = CanFinish(numCourses2, prerequisites2);
+        Console.WriteLine("Expected false but actual: " + result2);
     }
     
     public static bool CanFinish(int numCourses, int[][] prerequisites)
     {
-
-        var adjList = new Dictionary<int, List<int>>();
+        var adjacency = new Dictionary<int, List<int>>();
 
         for (int i = 0; i < numCourses; i++)
         {
-            adjList[i] = new List<int>();
+            adjacency[i] = new List<int>();
         }
 
         foreach (var pre in prerequisites)
         {
             var course = pre[0];
             var prerequisite = pre[1];
-            adjList[prerequisite].Add(course);
+            adjacency[prerequisite].Add(course);
         }
 
-        var visitedStatus = new int[numCourses];
+        var visited = new int[numCourses];
 
         for (int i = 0; i < numCourses; i++)
         {
-            if (visitedStatus[i] == 0)
+            if (visited[i] == 0)
             {
+                var hasCicle = HasCicle(i, adjacency, visited);
 
-                if (HasCicle(i, adjList, visitedStatus))
-                {
+                if (hasCicle)
                     return false;
-                }
-
             }
         }
 
+     
         return true;
     }
 
-    public static bool HasCicle(int currentCourse, Dictionary<int, List<int>> adjList, int[] visitStatus)
+    public static bool HasCicle(int currentCourse, Dictionary<int, List<int>> adjacency, int[] visitStatus)
     {
-
+        if (visitStatus[currentCourse] == 1)
+            return true;
+        
+        if (visitStatus[currentCourse] == 2)
+            return false;
+        
         visitStatus[currentCourse] = 1;
 
-        foreach (int neighbor in adjList[currentCourse])
+        foreach (var neighbor in adjacency[currentCourse])
         {
+            bool hasCicle = HasCicle(neighbor, adjacency, visitStatus);
 
-            if (visitStatus[neighbor] == 1)
-            {
+            if (hasCicle)
                 return true;
-            }
-
-            if (visitStatus[neighbor] == 0)
-            {
-                if (HasCicle(neighbor, adjList, visitStatus))
-                {
-                    return true;
-                }
-            }
         }
-
+        
         visitStatus[currentCourse] = 2;
-
+        
         return false;
     }
 }
